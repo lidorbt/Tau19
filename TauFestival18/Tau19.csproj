@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1319095B-A649-4244-8C38-60115BAFDAB1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Tau19</RootNamespace>
+    <AssemblyName>Tau19</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DigitalExperimentalCompetitionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DigitalExperimentalCompetitionForm.Designer.cs">
+      <DependentUpon>DigitalExperimentalCompetitionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FestivalHightlightsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FestivalHightlightsForm.Designer.cs">
+      <DependentUpon>FestivalHightlightsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheIsraeliCriticsAssociationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TheIsraeliCriticsAssociationForm.Designer.cs">
+      <DependentUpon>TheIsraeliCriticsAssociationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheIndependentShortFilmCompetitionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TheIndependentShortFilmCompetitionForm.Designer.cs">
+      <DependentUpon>TheIndependentShortFilmCompetitionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheInternationalCompetitionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TheInternationalCompetitionForm.Designer.cs">
+      <DependentUpon>TheInternationalCompetitionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheIsraeliCompetitionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TheIsraeliCompetitionForm.Designer.cs">
+      <DependentUpon>TheIsraeliCompetitionForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DigitalExperimentalCompetitionForm.resx">
+      <DependentUpon>DigitalExperimentalCompetitionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FestivalHightlightsForm.resx">
+      <DependentUpon>FestivalHightlightsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TheIsraeliCriticsAssociationForm.resx">
+      <DependentUpon>TheIsraeliCriticsAssociationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TheIndependentShortFilmCompetitionForm.resx">
+      <DependentUpon>TheIndependentShortFilmCompetitionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TheInternationalCompetitionForm.resx">
+      <DependentUpon>TheInternationalCompetitionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TheIsraeliCompetitionForm.resx">
+      <DependentUpon>TheIsraeliCompetitionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Assets\usb_screen_2019_062.pdf" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\back.png" />
+    <Content Include="Assets\Backgrounds\a.png" />
+    <Content Include="Assets\Backgrounds\b.png" />
+    <Content Include="Assets\Backgrounds\c.png" />
+    <Content Include="Assets\Backgrounds\d.png" />
+    <Content Include="Assets\Backgrounds\e.png" />
+    <Content Include="Assets\Backgrounds\f.png" />
+    <Content Include="Assets\Backgrounds\g.png" />
+    <Content Include="Assets\exit.png" />
+    <Content Include="Assets\full_close.png" />
+    <Content Include="Assets\full_open.png" />
+    <Content Include="Assets\Movies\DigitalExperimental\f2.png" />
+    <Content Include="Assets\Movies\DigitalExperimental\f4.png" />
+    <Content Include="Assets\Movies\FestivalHighlights\g2.png" />
+    <Content Include="Assets\Movies\FestivalHighlights\g3.png" />
+    <Content Include="Assets\Movies\TheIndependentShortFilmCompetition\d2.png" />
+    <Content Include="Assets\Movies\TheIndependentShortFilmCompetition\d3.png" />
+    <Content Include="Assets\Movies\TheIndependentShortFilmCompetition\d4.png" />
+    <Content Include="Assets\Movies\TheIndependentShortFilmCompetition\d5.png" />
+    <Content Include="Assets\Movies\TheIndependentShortFilmCompetition\d6.png" />
+    <Content Include="Assets\Movies\TheInternationalCompetition\b2.png" />
+    <Content Include="Assets\Movies\TheInternationalCompetition\b3.png" />
+    <Content Include="Assets\Movies\TheInternationalCompetition\b4.png" />
+    <Content Include="Assets\Movies\TheInternationalCompetition\b5.png" />
+    <Content Include="Assets\Movies\TheInternationalCompetition\b6.png" />
+    <Content Include="Assets\Movies\TheInternationalCompetition\b7.png" />
+    <Content Include="Assets\Movies\TheIsraeliCompetition\c2.png" />
+    <Content Include="Assets\Movies\TheIsraeliCompetition\c3.png" />
+    <Content Include="Assets\Movies\TheIsraeliCompetition\c4.png" />
+    <Content Include="Assets\Movies\TheIsraeliCompetition\c5.png" />
+    <Content Include="Assets\Movies\TheIsraeliCompetition\c6.png" />
+    <Content Include="Assets\Movies\TheIsraeliCompetition\c7.png" />
+    <Content Include="Assets\Movies\TheIsraeliCompetition\c8.png" />
+    <Content Include="Assets\Movies\TheIsraeliFilmCritictsAssociation\e2.png" />
+    <Content Include="Assets\Movies\TheIsraeliFilmCritictsAssociation\e3.png" />
+    <Content Include="Assets\Movies\TheIsraeliFilmCritictsAssociation\e4.png" />
+    <Content Include="Assets\Movies\TheIsraeliFilmCritictsAssociation\e5.png" />
+    <Content Include="Assets\Movies\TheIsraeliFilmCritictsAssociation\e6.png" />
+    <Content Include="Assets\SideTitles\b1.png" />
+    <Content Include="Assets\SideTitles\c1.png" />
+    <Content Include="Assets\SideTitles\d1.png" />
+    <Content Include="Assets\SideTitles\e1.png" />
+    <Content Include="Assets\SideTitles\f1.png" />
+    <Content Include="Assets\SideTitles\f3.png" />
+    <Content Include="Assets\SideTitles\g1.png" />
+    <Content Include="Assets\Titles\a1.png" />
+    <Content Include="Assets\Titles\a2.png" />
+    <Content Include="Assets\Titles\a3.png" />
+    <Content Include="Assets\Titles\a4.png" />
+    <Content Include="Assets\Titles\a5.png" />
+    <Content Include="Assets\Titles\a6.png" />
+    <Content Include="Assets\Titles\a7.png" />
+    <Content Include="Assets\Titles\a8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Movies\WinningFilms\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
