@@ -22,6 +22,8 @@ namespace Tau19
                 new TheIndependentShortFilmCompetitionForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = this.Size },
                 new FestivalHightlightsForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = this.Size },
             };
+
+            pictureBox5_Click_1(null, null);
         }
 
         private const int cGrip = 16;      // Grip size

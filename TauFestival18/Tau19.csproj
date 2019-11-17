@@ -65,12 +65,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Test.Designer.cs">
-      <DependentUpon>Test.cs</DependentUpon>
-    </Compile>
     <Compile Include="FestivalHightlightsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,9 +105,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Test.resx">
-      <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FestivalHightlightsForm.resx">
       <DependentUpon>FestivalHightlightsForm.cs</DependentUpon>
@@ -156,6 +147,7 @@
     <Content Include="Assets\exit.png" />
     <Content Include="Assets\full_close.png" />
     <Content Include="Assets\full_open.png" />
+    <Content Include="Assets\icon.ico" />
     <Content Include="Assets\Movies\DigitalExperimental\f2.png" />
     <Content Include="Assets\Movies\DigitalExperimental\f4.png" />
     <Content Include="Assets\Movies\FestivalHighlights\g2.png" />
@@ -183,6 +175,9 @@
     <Content Include="Assets\Movies\TheIsraeliFilmCritictsAssociation\e4.png" />
     <Content Include="Assets\Movies\TheIsraeliFilmCritictsAssociation\e5.png" />
     <Content Include="Assets\Movies\TheIsraeliFilmCritictsAssociation\e6.png" />
+    <Content Include="Assets\Movies\TheIsraeliFilmCritictsAssociation\e7.png" />
+    <Content Include="Assets\Movies\TheIsraeliFilmCritictsAssociation\e8.png" />
+    <Content Include="Assets\Movies\TheIsraeliFilmCritictsAssociation\e9.png" />
     <Content Include="Assets\SideTitles\b1.png" />
     <Content Include="Assets\SideTitles\c1.png" />
     <Content Include="Assets\SideTitles\d1.png" />
@@ -201,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\Movies\WinningFilms\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
