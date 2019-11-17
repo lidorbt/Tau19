@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace Tau19
@@ -8,130 +9,156 @@ namespace Tau19
     {
         private Form[] forms;
 
+        //private void AntiFlicker()
+        //{
+        //    typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, this, new object[] { true });
+        //    SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.ResizeRedraw | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.DoubleBuffer, true);
+        //    SetStyle(ControlStyles.SupportsTransparentBackColor | ControlStyles.Opaque, false);
+        //    FormBorderStyle = FormBorderStyle.None;
+        //    DoubleBuffered = true;
+        //}
+
         public MainMenu()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
             this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
+
+            Common.formSize = new Size(Size.Width, Size.Height);
+
             forms = new Form[] {
-                new DigitalExperimentalCompetitionForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = this.Size },
-                new TheIsraeliCriticsAssociationForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = this.Size },
-                new TheInternationalCompetitionForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = this.Size },
-                new TheIsraeliCompetitionForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = this.Size },
-                new TheIndependentShortFilmCompetitionForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = this.Size },
-                new FestivalHightlightsForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = this.Size },
+                new DigitalExperimentalCompetitionForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = Common.formSize },
+                new TheIsraeliCriticsAssociationForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = Common.formSize },
+                new TheInternationalCompetitionForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = Common.formSize },
+                new TheIsraeliCompetitionForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = Common.formSize },
+                new TheIndependentShortFilmCompetitionForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = Common.formSize },
+                new FestivalHightlightsForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = Common.formSize },
             };
 
-            pictureBox5_Click_1(null, null);
+            Resize(this.resizePb, null);
         }
-
-        private const int cGrip = 16;      // Grip size
-        private const int cCaption = 32;   // Caption bar height;
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Rectangle rc = new Rectangle(this.ClientSize.Width - cGrip, this.ClientSize.Height - cGrip, cGrip, cGrip);
-            ControlPaint.DrawSizeGrip(e.Graphics, this.BackColor, rc);
-            rc = new Rectangle(0, 0, this.ClientSize.Width, cCaption);
-            e.Graphics.FillRectangle(Brushes.Transparent, rc);
+            Common.OnPaint(e, this);
         }
 
+        #region draggable resizable
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == 0x84 && this.WindowState != FormWindowState.Maximized)
-            {  // Trap WM_NCHITTEST
-                Point pos = new Point(m.LParam.ToInt32());
-                pos = this.PointToClient(pos);
-                if (pos.Y < cCaption)
-                {
-                    m.Result = (IntPtr)2;  // HTCAPTION
+            const int RESIZE_HANDLE_SIZE = 10;
+
+            switch (m.Msg)
+            {
+                case 0x0084/*NCHITTEST*/ :
+                    base.WndProc(ref m);
+
+                    if ((int)m.Result == 0x01/*HTCLIENT*/)
+                    {
+                        Point screenPoint = new Point(m.LParam.ToInt32());
+                        Point clientPoint = this.PointToClient(screenPoint);
+                        if (clientPoint.Y <= RESIZE_HANDLE_SIZE)
+                        {
+                            if (clientPoint.X <= RESIZE_HANDLE_SIZE)
+                                m.Result = (IntPtr)13/*HTTOPLEFT*/ ;
+                            else if (clientPoint.X < (Size.Width - RESIZE_HANDLE_SIZE))
+                                m.Result = (IntPtr)12/*HTTOP*/ ;
+                            else
+                                m.Result = (IntPtr)14/*HTTOPRIGHT*/ ;
+                        }
+                        else if (clientPoint.Y <= (Size.Height - RESIZE_HANDLE_SIZE))
+                        {
+                            if (clientPoint.X <= RESIZE_HANDLE_SIZE)
+                                m.Result = (IntPtr)10/*HTLEFT*/ ;
+                            else if (clientPoint.X < (Size.Width - RESIZE_HANDLE_SIZE))
+                                m.Result = (IntPtr)2/*HTCAPTION*/ ;
+                            else
+                                m.Result = (IntPtr)11/*HTRIGHT*/ ;
+                        }
+                        else
+                        {
+                            if (clientPoint.X <= RESIZE_HANDLE_SIZE)
+                                m.Result = (IntPtr)16/*HTBOTTOMLEFT*/ ;
+                            else if (clientPoint.X < (Size.Width - RESIZE_HANDLE_SIZE))
+                                m.Result = (IntPtr)15/*HTBOTTOM*/ ;
+                            else
+                                m.Result = (IntPtr)17/*HTBOTTOMRIGHT*/ ;
+                        }
+                    }
                     return;
-                }
-                if (pos.X >= this.ClientSize.Width - cGrip && pos.Y >= this.ClientSize.Height - cGrip)
-                {
-                    m.Result = (IntPtr)17; // HTBOTTOMRIGHT
-                    return;
-                }
             }
+
+            Common.formSize = new Size(Size.Width, Size.Height);
+
             base.WndProc(ref m);
+        }
+        #endregion
+
+        private new void Resize(object sender, EventArgs e)
+        {
+            Common.Resize(sender, e, this, this.resizePb);
         }
 
         private void FormSwitch(Form frm)
         {
-            frm.Size = this.Size;
+            frm.Size = Common.formSize;
+            //frm.Height = 1200;
+            //frm.Width = 1200;
             frm.Location = this.Location;
             frm.WindowState = this.WindowState;
             StartPosition = FormStartPosition.Manual;
-            frm.FormClosing += delegate {
-                this.Show();
-                this.Size = frm.Size;
-                this.WindowState = frm.WindowState;
-                this.pictureBox5.Image = this.WindowState == FormWindowState.Maximized ? Properties.Resources.full_close : Properties.Resources.full_open;
+
+            frm.FormClosing += delegate
+            {
+                Show();
+                Size = Common.formSize;
+                WindowState = frm.WindowState;
+                StartPosition = FormStartPosition.Manual;
+                resizePb.Image = this.WindowState == FormWindowState.Maximized ? Properties.Resources.full_close : Properties.Resources.full_open;
+                Location = frm.Location;
             };
-            // לשחר - למקרה שאתה רואה את השורות הבאות ולא מבין למה זה ככה
-            // זה מופיע 3 פעמים כדי שלא יהיה אפקט פתיחה / סגירה 
-            frm.Show();
-            frm.Hide();
+
             frm.Show();
             this.Hide();
         }
 
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void pictureBox5_Click_1(object sender, EventArgs e)
-        {
-            if(this.WindowState == FormWindowState.Maximized)
-            {
-                this.TopMost = false;
-                this.WindowState = FormWindowState.Normal;
-                this.pictureBox5.Image = Properties.Resources.full_open;
-            }
-            else
-            {
-                this.TopMost = true;
-                this.WindowState = FormWindowState.Maximized;
-                this.pictureBox5.Image = Properties.Resources.full_close;
-            }
-        }
-
         private void a2pb_Click(object sender, EventArgs e)
         {
-            FormSwitch(new TheInternationalCompetitionForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = this.Size });
+            FormSwitch(new TheInternationalCompetitionForm());
         }
 
         private void a3pb_Click(object sender, EventArgs e)
         {
-            FormSwitch(new TheIsraeliCompetitionForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = this.Size });
+            FormSwitch(new TheIsraeliCompetitionForm());
         }
 
         private void a4pb_Click(object sender, EventArgs e)
         {
-            FormSwitch(new TheIndependentShortFilmCompetitionForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = this.Size });
+            FormSwitch(new TheIndependentShortFilmCompetitionForm());
         }
 
         private void a5pb_Click(object sender, EventArgs e)
         {
-            FormSwitch(new TheIsraeliCriticsAssociationForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = this.Size });
+            FormSwitch(new TheIsraeliCriticsAssociationForm());
         }
 
         private void a6pb_Click(object sender, EventArgs e)
         {
-            FormSwitch(new DigitalExperimentalCompetitionForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = this.Size });
-        
+            FormSwitch(new DigitalExperimentalCompetitionForm());
         }
 
         private void a7pb_Click(object sender, EventArgs e)
         {
-            FormSwitch(new DigitalExperimentalCompetitionForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = this.Size });
+            FormSwitch(new DigitalExperimentalCompetitionForm());
         }
 
         private void a8pb_Click(object sender, EventArgs e)
         {
-            FormSwitch(new FestivalHightlightsForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = this.Size });
+            FormSwitch(new FestivalHightlightsForm());
+        }
+
+        private void CloseApp(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

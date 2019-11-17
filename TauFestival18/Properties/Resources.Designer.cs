@@ -151,42 +151,6 @@ namespace Tau19.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to \Videos\ALoveLetterV.mp4.
-        /// </summary>
-        internal static string ALoveLetterurl {
-            get {
-                return ResourceManager.GetString("ALoveLetterurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\AMeaningfullJobV.mp4.
-        /// </summary>
-        internal static string AMeaningfullJoburl {
-            get {
-                return ResourceManager.GetString("AMeaningfullJoburl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\AnActOfLoveV.mp4.
-        /// </summary>
-        internal static string AnActOfLoveurl {
-            get {
-                return ResourceManager.GetString("AnActOfLoveurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\AsaTurns13V.mp4.
-        /// </summary>
-        internal static string AsaTurns13url {
-            get {
-                return ResourceManager.GetString("AsaTurns13url", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap b {
@@ -273,15 +237,6 @@ namespace Tau19.Properties {
             get {
                 object obj = ResourceManager.GetObject("back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\BeforeTheActionV.mp4.
-        /// </summary>
-        internal static string BeforeTheActionurl {
-            get {
-                return ResourceManager.GetString("BeforeTheActionurl", resourceCulture);
             }
         }
         
@@ -446,15 +401,6 @@ namespace Tau19.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to \Videos\DayenuV.mp4.
-        /// </summary>
-        internal static string Dayenuurl {
-            get {
-                return ResourceManager.GetString("Dayenuurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap e {
@@ -555,15 +501,6 @@ namespace Tau19.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to \Videos\ExcuseMeV.mp4.
-        /// </summary>
-        internal static string ExcuseMeurl {
-            get {
-                return ResourceManager.GetString("ExcuseMeurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap exit {
@@ -620,24 +557,6 @@ namespace Tau19.Properties {
             get {
                 object obj = ResourceManager.GetObject("f4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\FestivalHighlightsV.mp4.
-        /// </summary>
-        internal static string FestivalHighlightsurl {
-            get {
-                return ResourceManager.GetString("FestivalHighlightsurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\FestivalTeaserV.mp4.
-        /// </summary>
-        internal static string FestivalTeaserurl {
-            get {
-                return ResourceManager.GetString("FestivalTeaserurl", resourceCulture);
             }
         }
         
@@ -702,165 +621,12 @@ namespace Tau19.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to \Videos\HomespaceV.mp4.
-        /// </summary>
-        internal static string Homespaceurl {
-            get {
-                return ResourceManager.GetString("Homespaceurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\HuntingGameV.mp4.
-        /// </summary>
-        internal static string HuntingGameurl {
-            get {
-                return ResourceManager.GetString("HuntingGameurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon icon {
             get {
                 object obj = ResourceManager.GetObject("icon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\IntergalacticSamuraiV.mp4.
-        /// </summary>
-        internal static string IntergalacticSamuraiurl {
-            get {
-                return ResourceManager.GetString("IntergalacticSamuraiurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\InvisiblyV.mov.
-        /// </summary>
-        internal static string Invisiblyurl {
-            get {
-                return ResourceManager.GetString("Invisiblyurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\LoveV.mp4.
-        /// </summary>
-        internal static string Loveurl {
-            get {
-                return ResourceManager.GetString("Loveurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\LuliV.mp4.
-        /// </summary>
-        internal static string Luliurl {
-            get {
-                return ResourceManager.GetString("Luliurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\LumpInTheThroatV.mp4.
-        /// </summary>
-        internal static string LumpInTheThroaturl {
-            get {
-                return ResourceManager.GetString("LumpInTheThroaturl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\MyFathersSonV.mp4.
-        /// </summary>
-        internal static string MyFathersSonurl {
-            get {
-                return ResourceManager.GetString("MyFathersSonurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\OldThingV.mov.
-        /// </summary>
-        internal static string OldThingurl {
-            get {
-                return ResourceManager.GetString("OldThingurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\OshriV.mp4.
-        /// </summary>
-        internal static string Oshriurl {
-            get {
-                return ResourceManager.GetString("Oshriurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\ShmamaV.mov.
-        /// </summary>
-        internal static string Shmamaurl {
-            get {
-                return ResourceManager.GetString("Shmamaurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\TheBearV.mp4.
-        /// </summary>
-        internal static string TheBearurl {
-            get {
-                return ResourceManager.GetString("TheBearurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\TheChildV.mp4.
-        /// </summary>
-        internal static string TheChildurl {
-            get {
-                return ResourceManager.GetString("TheChildurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\TheManBehindTheWallV.mov.
-        /// </summary>
-        internal static string TheManBehindTheWallurl {
-            get {
-                return ResourceManager.GetString("TheManBehindTheWallurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\TwoOfEveryKindV.mp4.
-        /// </summary>
-        internal static string TwoOfEveryKindurl {
-            get {
-                return ResourceManager.GetString("TwoOfEveryKindurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\WellDoneV.mov.
-        /// </summary>
-        internal static string WellDoneurl {
-            get {
-                return ResourceManager.GetString("WellDoneurl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to \Videos\WheretheSummerGoesV.mp4.
-        /// </summary>
-        internal static string WheretheSummerGoesurl {
-            get {
-                return ResourceManager.GetString("WheretheSummerGoesurl", resourceCulture);
             }
         }
     }
