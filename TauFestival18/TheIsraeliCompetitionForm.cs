@@ -9,6 +9,7 @@ namespace Tau19
         public TheIsraeliCompetitionForm()
         {
             InitializeComponent();
+            ClientSize = new Size((int)(Screen.PrimaryScreen.Bounds.Width * 0.7), (int)(Screen.PrimaryScreen.Bounds.Height * 0.7));
             this.FormBorderStyle = FormBorderStyle.None;
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.ResizeRedraw, true);
@@ -17,6 +18,7 @@ namespace Tau19
         protected override void OnShown(EventArgs e)
         {
             this.resizePb.Image = this.WindowState == FormWindowState.Maximized ? Properties.Resources.full_close : Properties.Resources.full_open;
+            Common.OnPaint(e, this);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -38,36 +40,19 @@ namespace Tau19
                     {
                         Point screenPoint = new Point(m.LParam.ToInt32());
                         Point clientPoint = this.PointToClient(screenPoint);
-                        if (clientPoint.Y <= RESIZE_HANDLE_SIZE)
+                        if (clientPoint.Y <= (Size.Height - RESIZE_HANDLE_SIZE))
                         {
-                            if (clientPoint.X <= RESIZE_HANDLE_SIZE)
-                                m.Result = (IntPtr)13/*HTTOPLEFT*/ ;
-                            else if (clientPoint.X < (Size.Width - RESIZE_HANDLE_SIZE))
-                                m.Result = (IntPtr)12/*HTTOP*/ ;
-                            else
-                                m.Result = (IntPtr)14/*HTTOPRIGHT*/ ;
-                        }
-                        else if (clientPoint.Y <= (Size.Height - RESIZE_HANDLE_SIZE))
-                        {
-                            if (clientPoint.X <= RESIZE_HANDLE_SIZE)
-                                m.Result = (IntPtr)10/*HTLEFT*/ ;
-                            else if (clientPoint.X < (Size.Width - RESIZE_HANDLE_SIZE))
+                            if (clientPoint.X < (Size.Width - RESIZE_HANDLE_SIZE))
+                            {
                                 m.Result = (IntPtr)2/*HTCAPTION*/ ;
-                            else
-                                m.Result = (IntPtr)11/*HTRIGHT*/ ;
-                        }
-                        else
-                        {
-                            if (clientPoint.X <= RESIZE_HANDLE_SIZE)
-                                m.Result = (IntPtr)16/*HTBOTTOMLEFT*/ ;
-                            else if (clientPoint.X < (Size.Width - RESIZE_HANDLE_SIZE))
-                                m.Result = (IntPtr)15/*HTBOTTOM*/ ;
-                            else
-                                m.Result = (IntPtr)17/*HTBOTTOMRIGHT*/ ;
+                                Common.FormLocation = new Point(this.Location.X, this.Location.Y);
+                            }
+
                         }
                     }
                     return;
             }
+
             base.WndProc(ref m);
         }
         #endregion
@@ -109,7 +94,7 @@ namespace Tau19
 
         private void c6pb_Click(object sender, EventArgs e)
         {
-            Common.OpenVideo($"{System.Reflection.MethodBase.GetCurrentMethod().Name.Replace("pb_Click", "")}.mp4");
+            Common.OpenVideo($"c3.mp4");
         }
 
         private void c7pb_Click(object sender, EventArgs e)

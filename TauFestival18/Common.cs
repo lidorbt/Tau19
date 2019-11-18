@@ -9,18 +9,18 @@ namespace Tau19
         private const int cGrip = 16;      // Grip size
         private const int cCaption = 32;   // Caption bar height;
 
-        public static Size formSize = new Size(1280, 960);
+        public static Point FormLocation { get; set; } = new Point(200, 200);
 
         public static void OpenVideo(string videoUrl)
         {
             string appPath = Application.StartupPath;
-            //MessageBox.Show($"{appPath}\\Videos\\{videoUrl}");
             try { System.Diagnostics.Process.Start($"{appPath}\\Videos\\{videoUrl}"); }
             catch { MessageBox.Show("Video is missing"); }
         }
 
-        public static void OnPaint(PaintEventArgs e, Form form)
+        public static void OnPaint(EventArgs e, Form form)//OnShown
         {
+            form.Location = FormLocation;
             //Rectangle rc = new Rectangle(form.ClientSize.Width - cGrip, form.ClientSize.Height - cGrip, cGrip, cGrip);
             //ControlPaint.DrawSizeGrip(e.Graphics, form.BackColor, rc);
             //rc = new Rectangle(0, 0, form.ClientSize.Width, cCaption);

@@ -385,6 +385,7 @@
             this.Name = "MainMenu";
             this.Padding = new System.Windows.Forms.Padding(20, 20, 20, 10);
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.MainMenu_Load);
             this.MainTable.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.resizePb)).EndInit();

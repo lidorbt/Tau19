@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -194,6 +197,7 @@
     <Content Include="Assets\Titles\a6.png" />
     <Content Include="Assets\Titles\a7.png" />
     <Content Include="Assets\Titles\a8.png" />
+    <Content Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\Movies\WinningFilms\" />

@@ -9,32 +9,26 @@ namespace Tau19
     {
         private Form[] forms;
 
-        //private void AntiFlicker()
-        //{
-        //    typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, this, new object[] { true });
-        //    SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.ResizeRedraw | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.DoubleBuffer, true);
-        //    SetStyle(ControlStyles.SupportsTransparentBackColor | ControlStyles.Opaque, false);
-        //    FormBorderStyle = FormBorderStyle.None;
-        //    DoubleBuffered = true;
-        //}
-
         public MainMenu()
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
-
-            Common.formSize = new Size(Size.Width, Size.Height);
-
+            ClientSize = new Size((int)(Screen.PrimaryScreen.Bounds.Width * 0.7), (int)(Screen.PrimaryScreen.Bounds.Height * 0.7));
             forms = new Form[] {
-                new DigitalExperimentalCompetitionForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = Common.formSize },
-                new TheIsraeliCriticsAssociationForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = Common.formSize },
-                new TheInternationalCompetitionForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = Common.formSize },
-                new TheIsraeliCompetitionForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = Common.formSize },
-                new TheIndependentShortFilmCompetitionForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = Common.formSize },
-                new FestivalHightlightsForm { Location = this.Location, StartPosition = FormStartPosition.Manual, Size = Common.formSize },
+                new DigitalExperimentalCompetitionForm(),
+                new TheIsraeliCriticsAssociationForm(),
+                new TheInternationalCompetitionForm(),
+                new TheIsraeliCompetitionForm(),
+                new TheIndependentShortFilmCompetitionForm(),
+                new FestivalHightlightsForm(),
             };
 
             Resize(this.resizePb, null);
+        }
+
+        protected override void OnShown(EventArgs e)
+        {
+            this.resizePb.Image = this.WindowState == FormWindowState.Maximized ? Properties.Resources.full_close : Properties.Resources.full_open;
+            Common.OnPaint(e, this);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -56,38 +50,18 @@ namespace Tau19
                     {
                         Point screenPoint = new Point(m.LParam.ToInt32());
                         Point clientPoint = this.PointToClient(screenPoint);
-                        if (clientPoint.Y <= RESIZE_HANDLE_SIZE)
+                        if (clientPoint.Y <= (Size.Height - RESIZE_HANDLE_SIZE))
                         {
-                            if (clientPoint.X <= RESIZE_HANDLE_SIZE)
-                                m.Result = (IntPtr)13/*HTTOPLEFT*/ ;
-                            else if (clientPoint.X < (Size.Width - RESIZE_HANDLE_SIZE))
-                                m.Result = (IntPtr)12/*HTTOP*/ ;
-                            else
-                                m.Result = (IntPtr)14/*HTTOPRIGHT*/ ;
-                        }
-                        else if (clientPoint.Y <= (Size.Height - RESIZE_HANDLE_SIZE))
-                        {
-                            if (clientPoint.X <= RESIZE_HANDLE_SIZE)
-                                m.Result = (IntPtr)10/*HTLEFT*/ ;
-                            else if (clientPoint.X < (Size.Width - RESIZE_HANDLE_SIZE))
+                            if (clientPoint.X < (Size.Width - RESIZE_HANDLE_SIZE))
+                            {
                                 m.Result = (IntPtr)2/*HTCAPTION*/ ;
-                            else
-                                m.Result = (IntPtr)11/*HTRIGHT*/ ;
-                        }
-                        else
-                        {
-                            if (clientPoint.X <= RESIZE_HANDLE_SIZE)
-                                m.Result = (IntPtr)16/*HTBOTTOMLEFT*/ ;
-                            else if (clientPoint.X < (Size.Width - RESIZE_HANDLE_SIZE))
-                                m.Result = (IntPtr)15/*HTBOTTOM*/ ;
-                            else
-                                m.Result = (IntPtr)17/*HTBOTTOMRIGHT*/ ;
+                                Common.FormLocation = new Point(this.Location.X, this.Location.Y);
+                            }
+
                         }
                     }
                     return;
             }
-
-            Common.formSize = new Size(Size.Width, Size.Height);
 
             base.WndProc(ref m);
         }
@@ -100,21 +74,16 @@ namespace Tau19
 
         private void FormSwitch(Form frm)
         {
-            frm.Size = Common.formSize;
-            //frm.Height = 1200;
-            //frm.Width = 1200;
             frm.Location = this.Location;
             frm.WindowState = this.WindowState;
-            StartPosition = FormStartPosition.Manual;
+            frm.Location = Common.FormLocation;
 
             frm.FormClosing += delegate
             {
                 Show();
-                Size = Common.formSize;
                 WindowState = frm.WindowState;
-                StartPosition = FormStartPosition.Manual;
                 resizePb.Image = this.WindowState == FormWindowState.Maximized ? Properties.Resources.full_close : Properties.Resources.full_open;
-                Location = frm.Location;
+                Location = Common.FormLocation;
             };
 
             frm.Show();
@@ -159,6 +128,11 @@ namespace Tau19
         private void CloseApp(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
