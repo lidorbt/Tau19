@@ -29,3 +29,4 @@ C:\Users\lidorb\Desktop\Tau19\TauFestival18\obj\Debug\Tau19.csproj.GenerateResou
 C:\Users\lidorb\Desktop\Tau19\TauFestival18\obj\Debug\Tau19.csproj.CoreCompileInputs.cache
 C:\Users\lidorb\Desktop\Tau19\TauFestival18\obj\Debug\Tau19.exe
 C:\Users\lidorb\Desktop\Tau19\TauFestival18\obj\Debug\Tau19.pdb
+C:\Users\lidorb\Desktop\Tau19\TauFestival18\obj\Debug\Tau19.csprojAssemblyReference.cache
