@@ -17,6 +17,7 @@ C:\Users\lidor\Desktop\Tau19\TauFestival18\obj\Debug\Tau19.pdb
 C:\Users\lidorb\Desktop\Tau19\TauFestival18\bin\Debug\Tau19.exe.config
 C:\Users\lidorb\Desktop\Tau19\TauFestival18\bin\Debug\Tau19.exe
 C:\Users\lidorb\Desktop\Tau19\TauFestival18\bin\Debug\Tau19.pdb
+C:\Users\lidorb\Desktop\Tau19\TauFestival18\obj\Debug\Tau19.csprojAssemblyReference.cache
 C:\Users\lidorb\Desktop\Tau19\TauFestival18\obj\Debug\Tau19.DigitalExperimentalCompetitionForm.resources
 C:\Users\lidorb\Desktop\Tau19\TauFestival18\obj\Debug\Tau19.MainMenu.resources
 C:\Users\lidorb\Desktop\Tau19\TauFestival18\obj\Debug\Tau19.Properties.Resources.resources
@@ -29,4 +30,3 @@ C:\Users\lidorb\Desktop\Tau19\TauFestival18\obj\Debug\Tau19.csproj.GenerateResou
 C:\Users\lidorb\Desktop\Tau19\TauFestival18\obj\Debug\Tau19.csproj.CoreCompileInputs.cache
 C:\Users\lidorb\Desktop\Tau19\TauFestival18\obj\Debug\Tau19.exe
 C:\Users\lidorb\Desktop\Tau19\TauFestival18\obj\Debug\Tau19.pdb
-C:\Users\lidorb\Desktop\Tau19\TauFestival18\obj\Debug\Tau19.csprojAssemblyReference.cache

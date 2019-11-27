@@ -20,11 +20,10 @@ namespace Tau19
 
         public static void OnPaint(EventArgs e, Form form)//OnShown
         {
-            form.Location = FormLocation;
-            //Rectangle rc = new Rectangle(form.ClientSize.Width - cGrip, form.ClientSize.Height - cGrip, cGrip, cGrip);
-            //ControlPaint.DrawSizeGrip(e.Graphics, form.BackColor, rc);
-            //rc = new Rectangle(0, 0, form.ClientSize.Width, cCaption);
-            //e.Graphics.FillRectangle(Brushes.Transparent, rc);
+            if (form.WindowState == FormWindowState.Maximized)
+                form.Location = new Point(0, 0);
+            else
+                form.Location = FormLocation;
         }
 
         public static void Resize(object sender, EventArgs e, Form form, PictureBox pb)

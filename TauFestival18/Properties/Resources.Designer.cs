@@ -483,6 +483,16 @@ namespace Tau19.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap e71 {
+            get {
+                object obj = ResourceManager.GetObject("e71", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap e8 {
             get {
                 object obj = ResourceManager.GetObject("e8", resourceCulture);
@@ -493,9 +503,29 @@ namespace Tau19.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap e81 {
+            get {
+                object obj = ResourceManager.GetObject("e81", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap e9 {
             get {
                 object obj = ResourceManager.GetObject("e9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap e91 {
+            get {
+                object obj = ResourceManager.GetObject("e91", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
