@@ -20,10 +20,7 @@ namespace Tau19
 
         public static void OnPaint(EventArgs e, Form form)//OnShown
         {
-            if (form.WindowState == FormWindowState.Maximized)
-                form.Location = new Point(0, 0);
-            else
-                form.Location = FormLocation;
+            form.Location = FormLocation;
         }
 
         public static void Resize(object sender, EventArgs e, Form form, PictureBox pb)
