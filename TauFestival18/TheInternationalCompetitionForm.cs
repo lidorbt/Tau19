@@ -89,11 +89,6 @@ namespace Tau19
         //}
         //#endregion
 
-        private void Close(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private new void Resize(object sender, EventArgs e)
         {
             Common.Resize(sender, e, this, this.resizePb);
@@ -101,7 +96,7 @@ namespace Tau19
 
         private void Back(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
         private void b2pb_Click(object sender, EventArgs e)

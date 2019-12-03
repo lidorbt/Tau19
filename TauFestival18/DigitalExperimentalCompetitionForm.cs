@@ -97,7 +97,7 @@ namespace Tau19
 
         private void Back(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
         private void f2pb_Click(object sender, EventArgs e)

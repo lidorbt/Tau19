@@ -1,12 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+
+enum FormsEnum
+{
+    DigitalExperimental,
+    FestivalHightlights,
+    IndependentShort,
+    International,
+    Israeli,
+    IsraeliCritics
+}
 
 namespace Tau19
 {
     public partial class MainMenu : Form
     {
-        private Form[] forms;
+        private Dictionary<FormsEnum, Form> formsDict = new Dictionary<FormsEnum, Form>();
 
         public MainMenu()
         {
@@ -18,14 +29,13 @@ namespace Tau19
             MinimizeBox = false;
             MaximizeBox = false;
 
-            forms = new Form[] {
-                new DigitalExperimentalCompetitionForm(),
-                new TheIsraeliCriticsAssociationForm(),
-                new TheInternationalCompetitionForm(),
-                new TheIsraeliCompetitionForm(),
-                new TheIndependentShortFilmCompetitionForm(),
-                new FestivalHightlightsForm(),
-            };
+
+            formsDict.Add(FormsEnum.DigitalExperimental, new DigitalExperimentalCompetitionForm());
+            formsDict.Add(FormsEnum.FestivalHightlights, new FestivalHightlightsForm());
+            formsDict.Add(FormsEnum.IndependentShort, new TheIndependentShortFilmCompetitionForm());
+            formsDict.Add(FormsEnum.International, new TheInternationalCompetitionForm());
+            formsDict.Add(FormsEnum.Israeli, new TheIsraeliCompetitionForm());
+            formsDict.Add(FormsEnum.IsraeliCritics, new TheIsraeliCriticsAssociationForm());
 
             //Resize(this.resizePb, null);
         }
@@ -106,7 +116,7 @@ namespace Tau19
             frm.WindowState = this.WindowState;
             frm.Location = Common.FormLocation;
 
-            frm.FormClosing += delegate
+            frm.VisibleChanged += delegate
             {
                 Show();
                 WindowState = frm.WindowState;
@@ -120,37 +130,37 @@ namespace Tau19
 
         private void a2pb_Click(object sender, EventArgs e)
         {
-            FormSwitch(new TheInternationalCompetitionForm());
+            FormSwitch(formsDict[FormsEnum.International]);
         }
 
         private void a3pb_Click(object sender, EventArgs e)
         {
-            FormSwitch(new TheIsraeliCompetitionForm());
+            FormSwitch(formsDict[FormsEnum.Israeli]);
         }
 
         private void a4pb_Click(object sender, EventArgs e)
         {
-            FormSwitch(new TheIndependentShortFilmCompetitionForm());
+            FormSwitch(formsDict[FormsEnum.IndependentShort]);
         }
 
         private void a5pb_Click(object sender, EventArgs e)
         {
-            FormSwitch(new TheIsraeliCriticsAssociationForm());
+            FormSwitch(formsDict[FormsEnum.IsraeliCritics]);
         }
 
         private void a6pb_Click(object sender, EventArgs e)
         {
-            FormSwitch(new DigitalExperimentalCompetitionForm());
+            FormSwitch(formsDict[FormsEnum.DigitalExperimental]);
         }
 
         private void a7pb_Click(object sender, EventArgs e)
         {
-            FormSwitch(new DigitalExperimentalCompetitionForm());
+            FormSwitch(formsDict[FormsEnum.DigitalExperimental]);
         }
 
         private void a8pb_Click(object sender, EventArgs e)
         {
-            FormSwitch(new FestivalHightlightsForm());
+            FormSwitch(formsDict[FormsEnum.FestivalHightlights]);
         }
 
         private void CloseApp(object sender, EventArgs e)

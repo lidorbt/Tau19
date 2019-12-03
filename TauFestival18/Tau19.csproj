@@ -182,6 +182,7 @@
     <Content Include="Assets\Movies\TheIsraeliFilmCritictsAssociation\e7.png" />
     <Content Include="Assets\Movies\TheIsraeliFilmCritictsAssociation\e8.png" />
     <Content Include="Assets\Movies\TheIsraeliFilmCritictsAssociation\e9.png" />
+    <Content Include="Assets\nothing.png" />
     <Content Include="Assets\SideTitles\b1.png" />
     <Content Include="Assets\SideTitles\c1.png" />
     <Content Include="Assets\SideTitles\d1.png" />
